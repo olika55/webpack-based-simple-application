@@ -33,10 +33,35 @@ class OperationExecutor {
    * @returns object that contains source object and his modified clone
    */
   firstTaskExecute(arg) {
-    /**
-     * Place your code here
-     */
-    return null /* variable with result */;
+      let target = {"obj1": {}};
+      for (let key in arg["obj1"]) {
+        if(key != "relatives") {
+          console.log('key: ' + key);
+          target["obj1"][key] = arg["obj1"][key];
+          console.log(key + ': ' + arg["obj1"][key] + '; ');
+        }
+      }
+      target["obj1"]["relatives"] = [];
+      let arr = arg["obj1"]["relatives"];
+      var relative;
+      console.log('relatives:');
+      console.log(arr);
+      arr.forEach(function(item, i, arr){
+        console.log(i);
+        console.log(arr[i]);
+        target["obj1"]["relatives"][i] = {};
+        relative = Object.assign(target["obj1"]["relatives"][i], arr[i]);
+      });
+      console.log("result:");
+      console.log(target);
+      target["obj1"]["firstName"] = "Petr";
+      target["obj1"]["lastName"] = "Fedorov";
+      target["obj1"]["relatives"][1]["firstName"] = "Angarapurna";
+      console.log("new result:");
+      console.log(target);
+      console.log("old object:");
+      console.log(arg);
+      return target /* variable with result */;
   }
 
   /**
