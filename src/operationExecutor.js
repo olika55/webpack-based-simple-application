@@ -47,7 +47,7 @@ class OperationExecutor {
         relative = Object.assign(target["obj1"]["relatives"][i], arr[i]);
       });
 
-      console.log("result:");
+     /* console.log("result:");
       console.log(target);
       target["obj1"]["firstName"] = "Petr";
       target["obj1"]["lastName"] = "Fedorov";
@@ -55,7 +55,7 @@ class OperationExecutor {
       console.log("new result:");
       console.log(target);
       console.log("old object:");
-      console.log(arg);
+      console.log(arg);*/
 
       return target /* variable with result */;
   }
@@ -67,10 +67,22 @@ class OperationExecutor {
    * @returns object that contains source objects and their combined and modified clone
    */
   secondTaskExecute(arg) {
-    /**
-     * Place your code here
-     */
-    return null /* variable with result */;
+      let target = {"obj1": {}};
+
+      target.obj1 = Object.assign(target.obj1, arg.obj1, arg.obj2);
+
+/*
+      console.log("result:");
+      console.log(target);
+      target["obj1"]["a"] = 888;
+      target["obj1"]["d"] = 999;
+      console.log("new result:");
+      console.log(target);
+      console.log("old object:");
+      console.log(arg);
+*/
+
+      return target /* variable with result */;
   }
 
   /**
