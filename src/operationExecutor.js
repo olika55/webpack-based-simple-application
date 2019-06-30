@@ -200,10 +200,19 @@ class OperationExecutor {
    * @returns obj that built using array's values
    */
   eighthTaskExecute(arg) {
-    /**
-     * Place your code here
-     */
-    return null;
+      let arr = arg["arr1"].concat(arg["arr2"]);
+      let target = {};
+      arr.forEach((item, i, arr) => {
+       if(i%2 === 0){
+           if( arr[i+1] !== undefined) {
+               target[item] = arr[i + 1];
+           }
+           else{
+               target[item] = null;
+           }
+       }
+    });
+    return target;
   }
 
   /**
