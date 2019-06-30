@@ -222,10 +222,12 @@ class OperationExecutor {
    * @returns obj that contains pairs id: obj with this id
    */
   ninthTaskExecute(arg) {
-    /**
-     * Place your code here
-     */
-    return null;
+    let arr = arg.users;
+    let target = {};
+    arr.forEach((item,i,arr) => {
+       target[item.id] = item;
+    });
+    return target;
   }
 
   /**
