@@ -36,7 +36,7 @@ class OperationExecutor {
       var relative;
       let target = {"obj1": {}};
       for (let key in arg["obj1"]) {
-        if(key != "relatives") {
+        if(key !== "relatives") {
           target["obj1"][key] = arg["obj1"][key];
         }
       }
@@ -92,10 +92,33 @@ class OperationExecutor {
    * @returns object that contains modified source object
    */
   thirdTaskExecute(arg) {
-    /**
-     * Place your code here
-     */
-    return null /* variable with result */;
+      let target = {"obj1": {}};
+
+      for (let key in arg["obj1"]) {
+          if(key !== "relatives") {
+              target["obj1"][key] = arg["obj1"][key];
+          }
+      }
+      target["obj1"]["relatives"] = [];
+      let arr = arg["obj1"]["relatives"];
+      arr.forEach((item, i, arr) => {
+          target["obj1"]["relatives"][i] = {};
+          Object.assign(target["obj1"]["relatives"][i], arr[i]);
+          target["obj1"]["relatives"][i]["gender"] = "female";
+      });
+
+       /*console.log("result:");
+      console.log(target);
+      target["obj1"]["firstName"] = "Petr";
+      target["obj1"]["lastName"] = "Fedorov";
+      target["obj1"]["relatives"][1]["firstName"] = "Angarapurna";
+      target["obj1"]["relatives"][2]["gender"] = "male";
+      console.log("new result:");
+      console.log(target);
+      console.log("old object:");
+      console.log(arg);*/
+
+    return target /* variable with result */;
   }
 
   /**
