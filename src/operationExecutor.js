@@ -182,10 +182,15 @@ class OperationExecutor {
    * @returns obj that contains swap pairs ('value: key')
    */
   seventhTaskExecute(arg) {
-    /**
-     * Place your code here
-     */
-    return null;
+    let target = {};
+      for (let key in arg) {
+          target[arg[key]] = key;
+      }
+
+      /*console.log("old object:");
+      console.log(arg);*/
+
+    return target;
   }
 
   /**
