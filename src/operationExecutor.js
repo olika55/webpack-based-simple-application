@@ -237,10 +237,14 @@ class OperationExecutor {
    * @returns obj that contains the array with info about children of the node
    */
   tenthTaskExecute(arg) {
-    /**
-     * Place your code here
-     */
-    return null;
+    let clname = arg["className"];
+    let elem = document.getElementsByClassName(clname)[0];
+    let childs = elem.children;
+    for(let i=0; i < childs.length; i++){
+        arg["childrenInfo"][i] = {"tag": childs[i].tagName, "class": childs[i].classList};
+    }
+
+    return arg;
   }
 }
 
