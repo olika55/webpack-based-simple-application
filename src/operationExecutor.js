@@ -128,10 +128,17 @@ class OperationExecutor {
    * @returns object that contains array of string with female relatives
    */
   fourthTaskExecute(arg) {
-    /**
-     * Place your code here
-     */
-    return null /* variable with result */;
+      let target = ``;
+      let arr = arg.obj1.relatives;
+      arr.forEach((item, i, arr) => {
+          target += `<p>Доброе утро, ${arr[i]["firstName"]}!</p>`;
+      });
+
+      /*let a = document.getElementsByClassName("task_3")[0];
+      let b = a.querySelector(".task__description");
+       b.innerHTML += target;*/
+
+    return target /* variable with result */;
   }
 
   /**
