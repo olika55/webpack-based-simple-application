@@ -148,10 +148,11 @@ class OperationExecutor {
    * @returns string which contains the class of the button and current color
    */
   fifthTaskExecute(arg) {
-    /**
-     * Place your code here
-     */
-    return '';
+      let cl = arg.className;
+      let col = arg.color;
+      let elem = document.getElementsByClassName(cl)[0];
+      elem.style.backgroundColor = col;
+      return '';
   }
 
   /**
