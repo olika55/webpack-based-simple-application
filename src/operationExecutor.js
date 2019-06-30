@@ -162,10 +162,17 @@ class OperationExecutor {
    * @returns object that contains array of items that match the hostname on which the application is running
    */
   sixthTaskExecute(arg) {
-    /**
-     * Place your code here
-     */
-    return null;
+    let target = {"hostNames": []};
+    let myhost = window.location.hostname;
+    let arr = arg.hostNames;
+    let j = 0;
+    arr.forEach( (item, i, arr) => {
+       if(arr[i] === myhost){
+           target.hostNames[j] = arr[i];
+           j++;
+       }
+    });
+    return target;
   }
 
   /**
