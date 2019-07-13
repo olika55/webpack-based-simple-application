@@ -90,33 +90,17 @@ class OperationExecutor {
    * @returns object that contains modified source object
    */
   thirdTaskExecute(arg) {
-      let target = {"obj1": {}};
-
-      for (let key in arg["obj1"]) {
-          if(key !== "relatives") {
-              target["obj1"][key] = arg["obj1"][key];
-          }
-      }
-      target["obj1"]["relatives"] = [];
-      let arr = arg["obj1"]["relatives"];
+      let arr = arg.obj1.relatives;
       arr.forEach((item, i, arr) => {
-          target["obj1"]["relatives"][i] = {};
-          Object.assign(target["obj1"]["relatives"][i], arr[i]);
-          target["obj1"]["relatives"][i]["gender"] = "female";
+          console.log(item);
+          if(item.lastName === "Ivanova") {
+              arg.obj1.relatives[i].gender = "female";
+          }else{
+              arg.obj1.relatives[i].gender = "male";
+          }
       });
 
-       /*console.log("result:");
-      console.log(target);
-      target["obj1"]["firstName"] = "Petr";
-      target["obj1"]["lastName"] = "Fedorov";
-      target["obj1"]["relatives"][1]["firstName"] = "Angarapurna";
-      target["obj1"]["relatives"][2]["gender"] = "male";
-      console.log("new result:");
-      console.log(target);
-      console.log("old object:");
-      console.log(arg);*/
-
-    return target /* variable with result */;
+    return arg /* variable with result */;
   }
 
   /**
@@ -129,7 +113,9 @@ class OperationExecutor {
       let target = ``;
       let arr = arg.obj1.relatives;
       arr.forEach((item, i, arr) => {
-          target += `<p>Доброе утро, ${arr[i]["firstName"]}!</p>`;
+          if(item.gender === "female") {
+              target += `<p>Доброе утро, ${arr[i]["firstName"]}!</p>`;
+          }
       });
 
       /*let a = document.getElementsByClassName("task_3")[0];
@@ -239,7 +225,7 @@ class OperationExecutor {
     let elem = document.getElementsByClassName(clname)[0];
     let childs = elem.children;
     for(let i=0; i < childs.length; i++){
-        arg["childrenInfo"][i] = {"tag": childs[i].tagName, "class": childs[i].classList};
+        arg.childrenInfo.push({"tag": childs[i].tagName, "class": childs[i].classList});
     }
 
     return arg;
